@@ -89,6 +89,7 @@ ul li {
 }
 
 .footer {
+  margin-top: 10px;
   text-align: center;
   padding: 10px;
   background-color: #333;
@@ -101,13 +102,20 @@ ul li {
 /* Estilo para os botões do LinkedIn e GitHub */
 .social-buttons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: center ;
+  
+
+  max-width: fit-content;
+  
+
+  margin: auto;
   margin-bottom: 30px; /* Espaço na parte inferior */
 }
 
 .social-buttons button {
-  margin-top: 10px; /* Espaço entre os botões */
+  
+  margin-right: 10px; /* Espaço entre os botões */
   background-color: #3498db; /* Cor azul para os botões */
   color: #fff;
   border: none;
@@ -116,9 +124,26 @@ ul li {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+.social-buttons a {
+  text-align: center; /* Centraliza o texto horizontalmente */
+  text-decoration: none; /* Remove a sublinhado padrão do link */
+  color: #333; /* Cor do texto */
+}
+
+.social-buttons p {
+  margin-top: 5px; /* Espaço superior para separar o texto da imagem */
+  font-size: 14px; /* Tamanho da fonte do texto */
+}
 
 .social-buttons button:hover {
   background-color: #2980b9; /* Cor um pouco mais escura ao passar o mouse */
+}
+.social-buttons img {
+  max-width: 10%;
+  height: auto;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
 }
 
 
