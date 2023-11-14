@@ -1,15 +1,78 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
+<head class="header">
+    <title>Perfil Pessoal</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil Pessoal</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    
 </head>
 <body>
-    <head>
+    <section class="home_container">
+        <LinkButton to="/newproject" text="Criar anotação" />
+        <img src="perfil.jpg" alt="perfil" />
+      </section>
+
+    <header class="home_container">
+        
         <h1>Jeremias de Oliveira Nunes</h1>
         <p>Endereço: Rua José do Patrocinio / Minas Gerais - Brasil</p>
-        <p>Contatos: </p>
-    </head>
+        <p>Contatos: jeremias.6292@gmail.com</p>
+        <p>Contatos: (35) 9 99082544</p>
+    </header>
+    <section class="home_container">
+        <h2>Educação</h2>
+        <div class = "item">
+            <h3>Univas- Universidade do Vale do Sapucai</h3>
+            <p>Bacharelado em Sistemas de Informações</p>
+            <p>2023 - atual</p>
+        </div>
+    </section>
+    <section class="home_container">
+        <h2>Experiencia Profissional</h2>
+        <div class = "item">
+            <h3>Hub Happy Pouso Alegre</h3>
+            <p>Mentor de code</p>
+            <p>Mentor de speech</p>
+            <p>2023 - atual</p>
+        </div>
+    </section>
+    <section class="home_container">
+        <h2>Habilidades</h2>
+       <ul>
+        <li>Desenvolvedor Android</li>
+        <li>Desenvolvedor java</li>
+        <li>Principios SOLID</li>
+       </ul>
+    </section>
+    <section class="home_container"> 
+        <form class="form" id="emailForm">
+            <h2>Formulário de Contato</h2>
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name">
+        
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email">
+        
+            <label for="message">Mensagem:</label>
+            <textarea id="message" name="mensage" rows="4"></textarea>
+        
+            <button type="button" onclick="sendEmail()">Enviar E-mail</button>
+        </form>
+
+        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+        <script src="script.js"></script>
+    </section>
+   
+    </section>
+   
+    
+
+
+    <footer class="footer">
+        <p>2023 Jeremias de Oliveira Nunes/ todos os direitos reservados</p>
+    </footer>
 </body>
 </html>
