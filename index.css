@@ -138,13 +138,43 @@ ul li {
 .social-buttons button:hover {
   background-color: #2980b9; /* Cor um pouco mais escura ao passar o mouse */
 }
+.social-buttons {
+  text-align: center; /* Centraliza os ícones */
+}
+
+.social-buttons a {
+  margin-right: 10px; /* Ajuste a margem conforme necessário para aumentar o espaçamento */
+}
+
 .social-buttons img {
-  max-width: 10%;
+  width: 20px; /* Defina a largura desejada para 16 pixels */
   height: auto;
   border-radius: 50%;
-  display: block;
-  margin: 0 auto;
-  image-rendering: auto;
+  display: inline-block; /* Alterado para inline-block para centralizar corretamente */
+  margin: 0 auto; /* Ajustado para centralizar corretamente */
+}
+
+.social-buttons p {
+  text-align: center;
+}
+
+.navigation {
+  margin-top: 20px;
+}
+
+.navigation a {
+  display: inline-block;
+  margin-right: 10px;
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+}
+
+.content {
+  margin-top: 20px;
+}
+.content {
+  margin-top: 20px;
 }
 
 
