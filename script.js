@@ -1,5 +1,5 @@
 
-emailjs.init("_VbqmhA7tyO_z_5bs");
+emailjs.init("PxZ3keznWjDknLNh3s");
 // Função para enviar e-mail
 function sendEmail() {
     const form = document.getElementById('emailForm');
