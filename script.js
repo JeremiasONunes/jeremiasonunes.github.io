@@ -13,7 +13,7 @@ function sendEmail() {
     if (validateForm(name, email, message)) {
         if (isValidEmail(email)) {
 
-            emailjs.sendForm('service_rar3rwr', 'template_c2or60n', form)
+            emailjs.sendForm('service_vvar92s', 'template_c2or60n', form)
                 .then((response) => {
                     alert('E-mail enviado com sucesso:', response);
 
