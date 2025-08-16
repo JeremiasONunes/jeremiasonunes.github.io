@@ -1,129 +1,514 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-   
-<head class="header">
-    <title>Perfil Pessoal</title>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeremias Nunes | Desenvolvedor Full Stack & Educador</title>
     <link rel="stylesheet" href="index.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    
-    
 </head>
 <body>
-    <section class="home_container">
-        <LinkButton to="/newproject" text="Criar anotação" />
-        <img src="perfil.jpg" alt="perfil" />
-      </section>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">JN</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projetos</a></li>
+                <li><a href="#philosophy" class="nav-link">Filosofia</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-    <header class="home_container">
-        
-        <h1>Jeremias de Oliveira Nunes</h1>
-        <p>Endereço: Rua José do Patrocinio / Minas Gerais - Brasil</p>
-        <p>Contatos: jeremias.6292@gmail.com</p>
-        <p>Contatos: (35) 9 99082544</p>
-    </header>
-    <section class="home_container">
-        <h2>Educação</h2>
-        <div class = "item">
-            <h3>Senac-Pouso Alegre</h3>
-            <p>Técnico de informatica</p>
-            <p>2019 - 2021</p>
-        </div>
-        <div class = "item">
-            <h3>Cisco NetAcad</h3>
-            <p>Cibersegurança Essentials</p>
-            <p>13/08/2020</p>
-        </div>
-        <div class = "item">
-            <h3>Cisco NetAcad</h3>
-            <p>Cibersegurança Foundation</p>
-            <p>17/08/2020</p>
-        </div>
-        <div class = "item">
-            <h3>Univas- Universidade do Vale do Sapucai</h3>
-            <p>Bacharelado em Sistemas de Informações</p>
-            <p>2022 - atual</p>
-        </div>
-    </section>
-    <section class="home_container">
-        <h2>Experiencia Profissional</h2>
-        <div class = "item">
-            <h3>Senac-Pouso Alegre</h3>
-            <p>Docente em T.I</p>
-            <p>2021 - 2022</p>
-        </div>
-        <div class = "item">
-            <h3>Escola municipal Profª Maria da Glória</h3>
-            <p>Professor de Programação</p>
-            <p>Técnico de Informática</p>
-            <p>2021 - 2023</p>
-        </div>
-        <div class = "item">
-            <h3>Hub Happy Pouso Alegre</h3>
-            <p>Mentor de code</p>
-            <p>Mentor de speech</p>
-            <p>2023 - atual</p>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Jeremias Nunes</span>
+                    </h1>
+                    <h2 class="hero-subtitle">Desenvolvedor Full Stack & Educador</h2>
+                    <p class="hero-description">
+                        Professor SENAC apaixonado por tecnologia e educação. 
+                        Transformando vidas através do código e do ensino.
+                    </p>
+                    <div class="hero-badges">
+                        <span class="badge">🎨 Frontend UX/UI</span>
+                        <span class="badge">⚙️ Backend Developer</span>
+                        <span class="badge">👨🏫 Educador Tech</span>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Entre em Contato</a>
+                        <a href="#projects" class="btn btn-secondary">Ver Projetos</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-container">
+                        <img src="perfil.jpg" alt="Jeremias Nunes" class="profile-img">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-    <section class="home_container">
-        <h2>Soft skills</h2>
-       <ul>
-        <li>Liderança;</li>
-        <li>Trabalho em Equipe;</li>
-        <li>Comunicação assertiva;</li>
-        <li>resolução de problemas;</li>
-       </ul>
-    </section>
-    <section class="home_container">
-        <h2>Habilidades Técnicas</h2>
-       <ul>
-        <li>Desenvolvimento Android;</li>
-        <li>Desenvolvimento java;</li>
-        <li>Desenvolvimento web;</li>
-        <li>Métodologias Ageis - Skrum - Kanban;</li>
-        <li>Principios SOLID;</li>
-       </ul>
-    </section>
-    
-    <section class="home_container"> 
-        <form class="form" id="emailForm">
-            <h2>Formulário de Contato</h2>
-            <label for="name">Nome:</label>
-            <input type="text" id="name" name="name">
-        
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email">
-        
-            <label for="message">Mensagem:</label>
-            <textarea id="message" name="mensage" rows="4"></textarea>
-        
-            <button type="button" onclick="sendEmail()">Enviar E-mail</button>
-        </form>
 
-        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-        <script src="script.js"></script>
-    </section>
-    <section class="home_container">
-        <div class="social-buttons">
-            <a href="https://www.linkedin.com/in/jeremiasoliveiranunes/" target="_blank" rel="noopener noreferrer">
-                <img src="linkedin.png" alt="LinkedIn">
-                <p>Linkedin</p>
-            </a>
-            <a href="https://github.com/JeremiasONunes" target="_blank" rel="noopener noreferrer">
-                <img src="github.png" alt="GitHub">
-                <p>Github</p>
-            </a>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre Mim</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description">
+                        Desenvolvedor Full Stack & Educador apaixonado por tecnologia e educação. 
+                        Atuo como Professor no SENAC no eixo de Tecnologia da Informação e mentor 
+                        de jovens talentos em programação e comunicação.
+                    </p>
+                    <p class="about-mission">
+                        <strong>Missão:</strong> Tornar o aprendizado acessível, prático e transformador
+                    </p>
+                    <div class="about-info">
+
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>jeremias.6292@gmail.com</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(35) 9 9856-3449</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>(35) 9 9908-2544</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Rua José do Patrocínio, Congonhal-MG</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Bacharelado em Sistemas de Informação - UNIVÁS (2022-2026)</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>Técnico em Informática - SENAC</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Cyber Segurança - Cisco Academy (2021)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">4+</div>
+                        <div class="stat-label">Anos de Experiência</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Alunos Formados</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Tecnologias</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Projetos Desenvolvidos</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-    
-    
-   
-    
 
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Arsenal Tecnológico</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-palette"></i>
+                        <h3>Frontend Development</h3>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-item">React</span>
+                        <span class="tech-item">Vite</span>
+                        <span class="tech-item">Tailwind CSS</span>
+                        <span class="tech-item">JavaScript</span>
+                        <span class="tech-item">HTML5</span>
+                        <span class="tech-item">CSS3</span>
+                        <span class="tech-item">Figma</span>
+                        <span class="tech-item">Responsive Design</span>
+                    </div>
+                    <div class="skill-features">
+                        <div class="feature-item">🎯 Interfaces responsivas e modernas</div>
+                        <div class="feature-item">🧩 Componentização eficiente</div>
+                        <div class="feature-item">👥 UX/UI focado no usuário</div>
+                        <div class="feature-item">⚡ Performance otimizada</div>
+                        <div class="feature-item">♿ Acessibilidade web</div>
+                        <div class="feature-item">📱 Mobile-first design</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-server"></i>
+                        <h3>Backend Development</h3>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-item">Python</span>
+                        <span class="tech-item">Django</span>
+                        <span class="tech-item">Flask</span>
+                        <span class="tech-item">FastAPI</span>
+                        <span class="tech-item">Express.js</span>
+                        <span class="tech-item">Node.js</span>
+                        <span class="tech-item">Axios</span>
+                        <span class="tech-item">RESTful APIs</span>
+                    </div>
+                    <div class="skill-features">
+                        <div class="feature-item">🔗 APIs RESTful seguras</div>
+                        <div class="feature-item">🏗️ Arquitetura escalável</div>
+                        <div class="feature-item">🗄️ Integração com bancos de dados</div>
+                        <div class="feature-item">🛡️ Segurança e validação</div>
+                        <div class="feature-item">🧪 Testes funcionais</div>
+                        <div class="feature-item">🔄 Integração contínua</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-database"></i>
+                        <h3>Banco de Dados & Ferramentas</h3>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-item">SQL</span>
+                        <span class="tech-item">SQLite</span>
+                        <span class="tech-item">PostgreSQL</span>
+                        <span class="tech-item">MySQL</span>
+                        <span class="tech-item">Git</span>
+                        <span class="tech-item">GitHub</span>
+                        <span class="tech-item">VS Code</span>
+                        <span class="tech-item">Postman</span>
+                        <span class="tech-item">Insomnia</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h3>Educação & Metodologias</h3>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-item">Ensino 4.0</span>
+                        <span class="tech-item">Metodologias Ativas</span>
+                        <span class="tech-item">TDD</span>
+                        <span class="tech-item">Agile/Scrum</span>
+                        <span class="tech-item">Kanban</span>
+                        <span class="tech-item">SOLID</span>
+                        <span class="tech-item">Clean Code</span>
+                        <span class="tech-item">Mentoria</span>
+                    </div>
+                    <div class="skill-features">
+                        <div class="feature-item">📚 Docência no SENAC</div>
+                        <div class="feature-item">🎯 Metodologias Ativas</div>
+                        <div class="feature-item">💬 Mentoria em Programação</div>
+                        <div class="feature-item">🗣️ Comunicação e Oratória</div>
+                        <div class="feature-item">🤝 Ensino Híbrido</div>
+                        <div class="feature-item">🌟 Desenvolvimento de Talentos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projetos em Destaque</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-hospital"></i>
+                        <h3>Sistema de Agendamento Psicológico</h3>
+                    </div>
+                    <p class="project-description">
+                        Sistema completo com interface moderna usando glassmorphism, 
+                        dashboard para psicólogos e pacientes, API RESTful e sistema de autenticação.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Vite</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">SQLite</span>
+                    </div>
+                    <div class="project-features">
+                        <div class="feature">🎨 Interface moderna com glassmorphism</div>
+                        <div class="feature">📊 Dashboard para psicólogos e pacientes</div>
+                        <div class="feature">🔗 API RESTful completa</div>
+                        <div class="feature">📱 Responsivo e acessível</div>
+                        <div class="feature">🔐 Sistema de autenticação</div>
+                        <div class="feature">📅 Agendamento inteligente</div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-globe"></i>
+                        <h3>Aplicações Full Stack</h3>
+                    </div>
+                    <p class="project-description">
+                        Desenvolvimento de aplicações completas com integração front-end e back-end, 
+                        APIs seguras e deploy em produção.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Express.js</span>
+                    </div>
+                    <div class="project-features">
+                        <div class="feature">⚡ CRUD completo e otimizado</div>
+                        <div class="feature">🔒 Autenticação e autorização</div>
+                        <div class="feature">🛡️ APIs seguras e eficientes</div>
+                        <div class="feature">🚀 Deploy em produção</div>
+                        <div class="feature">📊 Monitoramento e logs</div>
+                        <div class="feature">🔄 Integração contínua</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Jornada Profissional</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 - Presente</div>
+                    <div class="timeline-content">
+                        <h3>👨🏫 Professor - SENAC Minas</h3>
+                        <p>Desenvolvimento de Sistemas, Redes de Computadores, Técnico em Informática, Metodologias Ativas</p>
+                        <div class="timeline-skills">
+                            <span class="skill-badge">Ensino 4.0</span>
+                            <span class="skill-badge">Metodologias Ativas</span>
+                            <span class="skill-badge">Programação</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <h3>🌟 Embaixador - DIO Campus Expert</h3>
+                        <p>Atuação em comunidade tech, networking, liderança estudantil e realização de eventos e workshops</p>
+                        <div class="timeline-skills">
+                            <span class="skill-badge">Liderança</span>
+                            <span class="skill-badge">Networking</span>
+                            <span class="skill-badge">Eventos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023</div>
+                    <div class="timeline-content">
+                        <h3>🎯 Happy - Pouso Alegre</h3>
+                        <p>Ministro aulas de Desenvolvimento de Software para jovens com idades entre 10 e 14 anos, bem como aulas de Programação Infantil para crianças de 7 a 9 anos em cursos regulares</p>
+                        <div class="timeline-skills">
+                            <span class="skill-badge">Educação Infantil</span>
+                            <span class="skill-badge">Programação</span>
+                            <span class="skill-badge">Desenvolvimento</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 - 2023</div>
+                    <div class="timeline-content">
+                        <h3>👨🏫 Professor - Escola Municipal Profª Maria da Glória</h3>
+                        <p>Professor de Programação, Técnico de Informática</p>
+                        <div class="timeline-skills">
+                            <span class="skill-badge">Educação</span>
+                            <span class="skill-badge">Programação</span>
+                            <span class="skill-badge">T.I.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 - 2022</div>
+                    <div class="timeline-content">
+                        <h3>👨🏫 Professor - SENAC Pouso Alegre</h3>
+                        <p>Docente em Tecnologia da Informação, Técnico em Informática</p>
+                        <div class="timeline-skills">
+                            <span class="skill-badge">Docência</span>
+                            <span class="skill-badge">T.I.</span>
+                            <span class="skill-badge">Informática</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="philosophy">
+        <div class="container">
+            <h2 class="section-title">Filosofia & Princípios</h2>
+            <div class="philosophy-content">
+                <div class="principles-grid">
+                    <div class="principle-card">
+                        <div class="principle-header">
+                            <i class="fas fa-code"></i>
+                            <h3>Meus Princípios</h3>
+                        </div>
+                        <div class="principle-list">
+                            <div class="principle-item">
+                                <span class="principle-icon">🎯</span>
+                                <div>
+                                    <strong>Código Limpo:</strong> Legibilidade e manutenibilidade
+                                </div>
+                            </div>
+                            <div class="principle-item">
+                                <span class="principle-icon">🔄</span>
+                                <div>
+                                    <strong>Melhoria Contínua:</strong> Sempre aprendendo e evoluindo
+                                </div>
+                            </div>
+                            <div class="principle-item">
+                                <span class="principle-icon">🤝</span>
+                                <div>
+                                    <strong>Colaboração:</strong> Trabalho em equipe e comunicação
+                                </div>
+                            </div>
+                            <div class="principle-item">
+                                <span class="principle-icon">🛡️</span>
+                                <div>
+                                    <strong>Qualidade:</strong> Testes e boas práticas
+                                </div>
+                            </div>
+                            <div class="principle-item">
+                                <span class="principle-icon">🚀</span>
+                                <div>
+                                    <strong>Inovação:</strong> Soluções criativas e eficientes
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="principle-card">
+                        <div class="principle-header">
+                            <i class="fas fa-cogs"></i>
+                            <h3>Metodologias</h3>
+                        </div>
+                        <div class="principle-list">
+                            <div class="principle-item">
+                                <span class="principle-icon">⚡</span>
+                                <div>
+                                    <strong>Agile/Scrum:</strong> Desenvolvimento iterativo
+                                </div>
+                            </div>
+                            <div class="principle-item">
+                                <span class="principle-icon">🧪</span>
+                                <div>
+                                    <strong>TDD:</strong> Test-Driven Development
+                                </div>
+                            </div>
+                            <div class="principle-item">
+                                <span class="principle-icon">🏗️</span>
+                                <div>
+                                    <strong>Clean Architecture:</strong> Separação de responsabilidades
+                                </div>
+                            </div>
+                            <div class="principle-item">
+                                <span class="principle-icon">🔄</span>
+                                <div>
+                                    <strong>CI/CD:</strong> Integração e deploy contínuo
+                                </div>
+                            </div>
+                            <div class="principle-item">
+                                <span class="principle-icon">📊</span>
+                                <div>
+                                    <strong>Code Review:</strong> Qualidade e conhecimento compartilhado
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="quotes-section">
+                    <div class="quote-card">
+                        <blockquote>
+                            "Código limpo não é escrito seguindo um conjunto de regras. Você não se torna um artesão de software ao aprender uma lista de heurísticas. Profissionalismo e artesanato vêm de valores que dirigem disciplinas."
+                        </blockquote>
+                        <cite>— Robert C. Martin</cite>
+                    </div>
+                    <div class="quote-card">
+                        <blockquote>
+                            "A melhor maneira de prever o futuro é inventá-lo."
+                        </blockquote>
+                        <cite>— Alan Kay</cite>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Vamos Conectar?</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Entre em Contato</h3>
+                    <p>Estou sempre aberto para novas oportunidades e colaborações!</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <span>jeremias.6292@gmail.com</span>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Congonhal, MG - Brasil</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/jeremiasoliveiranunes/" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/JeremiasONunes" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-cta">
+                    <h4>Disponível para:</h4>
+                    <div class="availability-list">
+                        <div class="availability-item">💼 Oportunidades de Desenvolvimento</div>
+                        <div class="availability-item">🤝 Colaborações em Projetos</div>
+                        <div class="availability-item">📚 Mentorias e Consultorias</div>
+                        <div class="availability-item">👨🏫 Oportunidades de Docência</div>
+                        <div class="availability-item">✈️ Disponibilidade para Viagens</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
-        <p>2023 Jeremias de Oliveira Nunes/ todos os direitos reservados</p>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Jeremias de Oliveira Nunes. Todos os direitos reservados.</p>
+                <p class="footer-quote">"Acredito no poder da educação e da tecnologia para transformar vidas!"</p>
+            </div>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
