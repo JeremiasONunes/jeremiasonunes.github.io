@@ -576,6 +576,49 @@ section {
   color: var(--text-secondary);
 }
 
+.project-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+  justify-content: center;
+}
+
+.github-btn,
+.demo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: var(--transition-normal);
+  border: 2px solid transparent;
+}
+
+.github-btn {
+  background: var(--text-primary);
+  color: white;
+  border-color: var(--text-primary);
+}
+
+.github-btn:hover {
+  background: transparent;
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.demo-btn {
+  background: var(--gradient-primary);
+  color: white;
+}
+
+.demo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
 /* Experience Section */
 .experience {
   background: var(--bg-secondary);
@@ -1007,6 +1050,15 @@ body.menu-open {
     padding: var(--spacing-lg);
   }
   
+  .project-actions {
+    flex-direction: column;
+  }
+  
+  .github-btn,
+  .demo-btn {
+    justify-content: center;
+  }
+  
   .timeline::before {
     left: 20px;
   }
@@ -1161,6 +1213,16 @@ body.menu-open {
   
   .project-card {
     padding: var(--spacing-md);
+  }
+  
+  .project-actions {
+    gap: var(--spacing-xs);
+  }
+  
+  .github-btn,
+  .demo-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.85rem;
   }
   
   .timeline-content {
