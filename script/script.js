@@ -1,7 +1,7 @@
 // Initialize EmailJS
 emailjs.init("PxZ3keznWjDknLNh3s");
 
-// DOM Elements
+// DOM Elements - with null checks
 const navbar = document.querySelector('.navbar');
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -9,24 +9,30 @@ const navLinks = document.querySelectorAll('.nav-link');
 
 // Mobile Navigation Toggle
 function toggleMobileMenu() {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-    document.body.classList.toggle('menu-open');
+    if (hamburger && navMenu) {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    }
 }
 
 // Close mobile menu when clicking on a link
 function closeMobileMenu() {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-    document.body.classList.remove('menu-open');
+    if (hamburger && navMenu) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.classList.remove('menu-open');
+    }
 }
 
 // Navbar scroll effect
 function handleNavbarScroll() {
-    if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+    if (navbar) {
+        if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     }
 }
 
@@ -42,7 +48,9 @@ function smoothScroll(target) {
     }
 }
 
-// Intersection Observer for animations
+// Intersection Observer for animations - cached elements
+let animateElements = null;
+
 function createObserver() {
     const observerOptions = {
         threshold: 0.1,
@@ -57,27 +65,38 @@ function createObserver() {
         });
     }, observerOptions);
 
-    // Observe elements for animation
-    const animateElements = document.querySelectorAll('.skill-category, .project-card, .timeline-item, .stat-item');
+    // Cache elements for animation - only query once
+    if (!animateElements) {
+        animateElements = document.querySelectorAll('.skill-category, .project-card, .timeline-item, .stat-item');
+    }
     animateElements.forEach(el => observer.observe(el));
 }
 
-// Active navigation link highlighting
+// Active navigation link highlighting - optimized
 function updateActiveNavLink() {
     const sections = document.querySelectorAll('section[id]');
     const scrollPos = window.scrollY + 100;
+    let activeSection = null;
 
+    // Find the active section first
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-        const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-
+        
         if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-            navLinks.forEach(link => link.classList.remove('active'));
-            if (navLink) navLink.classList.add('active');
+            activeSection = section.getAttribute('id');
         }
     });
+
+    // Only update if we found an active section
+    if (activeSection) {
+        // Remove active class from all links once
+        navLinks.forEach(link => link.classList.remove('active'));
+        
+        // Add active class to the current section's link
+        const activeNavLink = document.querySelector(`.nav-link[href="#${activeSection}"]`);
+        if (activeNavLink) activeNavLink.classList.add('active');
+    }
 }
 
 // Add staggered animation to tech items
@@ -102,6 +121,20 @@ function addHoverAnimations() {
     });
 }
 
+// Throttle function for performance
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu event listeners
@@ -117,13 +150,26 @@ document.addEventListener('DOMContentLoaded', function() {
             smoothScroll(target);
             closeMobileMenu();
         });
+        
+        // Add touch feedback for mobile
+        link.addEventListener('touchstart', () => {
+            link.style.opacity = '0.7';
+        });
+        
+        link.addEventListener('touchend', () => {
+            setTimeout(() => {
+                link.style.opacity = '1';
+            }, 150);
+        });
     });
     
-    // Scroll event listeners
-    window.addEventListener('scroll', () => {
+    // Throttled scroll event listeners for better performance
+    const throttledScrollHandler = throttle(() => {
         handleNavbarScroll();
         updateActiveNavLink();
-    });
+    }, 16); // ~60fps
+    
+    window.addEventListener('scroll', throttledScrollHandler);
     
     // Initialize intersection observer for animations
     createObserver();
@@ -148,6 +194,39 @@ window.addEventListener('resize', () => {
         closeMobileMenu();
     }
 });
+
+// Handle touch events for better mobile experience
+let touchStartY = 0;
+let touchEndY = 0;
+
+document.addEventListener('touchstart', (e) => {
+    touchStartY = e.changedTouches[0].screenY;
+});
+
+document.addEventListener('touchend', (e) => {
+    touchEndY = e.changedTouches[0].screenY;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartY - touchEndY;
+    
+    // Close mobile menu on upward swipe
+    if (diff > swipeThreshold && navMenu && navMenu.classList.contains('active')) {
+        closeMobileMenu();
+    }
+}
+
+// Prevent scroll when mobile menu is open
+function preventScroll(e) {
+    if (document.body.classList.contains('menu-open')) {
+        e.preventDefault();
+    }
+}
+
+// Add touch event listeners
+document.addEventListener('touchmove', preventScroll, { passive: false });
 
 // Add CSS for mobile menu states
 const style = document.createElement('style');
